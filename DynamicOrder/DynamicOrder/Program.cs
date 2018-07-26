@@ -8,12 +8,24 @@ namespace DynamicOrder
 {
 	public class Program
 	{
+		private class Author
+		{
+			public string FirstName { get; set; }
+			public string LastName { get; set; }
+
+			public Author(string firstName, string lastName)
+			{
+				FirstName = firstName;
+				LastName = lastName;
+			}
+		}
+
 		private class Book
 		{
-			public string Author { get; set; }
+			public Author Author { get; set; }
 			public string Title { get; set; }
 
-			public Book(string author, string title)
+			public Book(Author author, string title)
 			{
 				Author = author;
 				Title = title;
@@ -22,11 +34,11 @@ namespace DynamicOrder
 
 		private static readonly IList<Book> _books = new List<Book>
 		{
-			new Book("J.R.R. Tolkien", "Two Towers, The"),
-			new Book("J.R.R. Tolkien", "Fellowship of the Ring, The"),
-			new Book("Jonathan Renshaw", "Dawn of Wonder"),
-			new Book("Agatha Christie", "And Then There Were None"),
-			new Book("C.S. Lewis", "Out of the Silent Planet")
+			new Book(new Author("J.R.R.", "Tolkien"), "Two Towers, The"),
+			new Book(new Author("J.R.R.", "Tolkien"), "Fellowship of the Ring, The"),
+			new Book(new Author("Jonathan", "Renshaw"), "Dawn of Wonder"),
+			new Book(new Author("Agatha", "Christie"), "And Then There Were None"),
+			new Book(new Author("C.S.", "Lewis"), "Out of the Silent Planet")
 		};
 
 		static void Main(string[] args)
@@ -69,7 +81,7 @@ namespace DynamicOrder
 		{
 			foreach (var book in books)
 			{
-				Console.WriteLine(book.Title + " by " + book.Author);
+				Console.WriteLine(book.Title + " by " + book.Author.FirstName + " " + book.Author.LastName);
 			}
 		}
 	}
