@@ -7,7 +7,7 @@ using System.Linq.Dynamic.Core.Exceptions;
 namespace DynamicOrder
 {
 	public class Program
-    {
+	{
 		private class Book
 		{
 			public string Author { get; set; }
@@ -30,10 +30,10 @@ namespace DynamicOrder
 		};
 
         static void Main(string[] args)
-        {
+		{
 			Order(book => book.Title);
 			ReadInput();
-        }
+		}
 
 		private static void Order(string properties)
 		{
@@ -72,5 +72,5 @@ namespace DynamicOrder
 				Console.WriteLine(book.Title + " by " + book.Author);
 			}
 		}
-    }
+	}
 }
