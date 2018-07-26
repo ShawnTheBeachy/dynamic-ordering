@@ -29,7 +29,7 @@ namespace DynamicOrder
 			new Book("C.S. Lewis", "Out of the Silent Planet")
 		};
 
-        static void Main(string[] args)
+		static void Main(string[] args)
 		{
 			Order(book => book.Title);
 			ReadInput();
